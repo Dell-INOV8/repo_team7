@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_security import login_required
-from .extensions import boot, db, debug, nav
+from .extensions import admin, boot, db, debug, nav
 
 # Create app context
 app = Flask(
@@ -21,6 +21,7 @@ import backend.core
 import backend.navigation
 
 # Register extensions
+admin.init_app(app)
 boot.init_app(app)
 db.init_app(app)
 nav.init_app(app)
