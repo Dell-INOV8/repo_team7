@@ -16,5 +16,3 @@ with app.app_context():
             security.Role, db.session, name='Manage Roles', category='User Admin'
         )
     )
-    print("added admin pages")
-

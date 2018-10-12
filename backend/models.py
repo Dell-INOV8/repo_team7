@@ -7,3 +7,7 @@ Base = declarative_base(name='Model')
 
 class BaseModel(Base, AllFeaturesMixin):
     __abstract__ = True
+
+    @classmethod
+    def find(cls, model_id):
+        return cls.query.filter(cls.id == model_id).first()
