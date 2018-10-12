@@ -1,6 +1,6 @@
 from backend import nav
-from flask import url_for
 from flask_nav.elements import Navbar, View
+from flask_security import current_user
 
 
 @nav.navigation()
@@ -8,4 +8,5 @@ def mynavbar():
     return Navbar(
         'Dell Team 7',
         View('Home', "index"),
+        View('Log out', 'security.logout') if current_user.is_authenticated else View('Log in', 'login')
     )
