@@ -4,7 +4,8 @@ from .extensions import boot, debug, nav
 # Create app context
 app = Flask(
     __name__,
-    template_folder="../frontend"
+    template_folder="../frontend",
+    static_folder="../static"
 )
 
 

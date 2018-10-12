@@ -1,6 +1,83 @@
 {% extends "base.html" %}
+{% block title %}
+Employee Platform
+{% endblock title %}
+
 
 {% block content %}
 {{ super() }}
-Hello World!
+<div class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-md-6">
+        <p><input type="text" placeholder="Search"></p>
+      </div>
+
+      <div class="col-md-6">
+        <div class="dropdown">
+          <button class="dropbtn">Filter None<img src="/static/img/drop-down-arrow.png"></button>
+          <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div>
+              <img src="/static/img/copy1.png">
+              <p>Senior Advisor, Visual Designer<br>DELL<br>San Francisco, CA</p>
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
+              eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+              sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+              qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
+              aliquam quaerat voluptatem.</p>
+            </div>
+          <div>Calendar</div>
+        </div>
+
+        <div class="col-md-4">
+
+          <p><input type="text" placeholder="Start a new post..."></p>
+
+          <div>
+            <div><img src="/static/img/copy1.png"><p>Art Vandelay</p></div>
+            <div><p>Began a new project this afternoon!
+              I am working on building a new T.V. stand for our house. So far, I have all the wood pieces cut out and am moving onto the wiring for the light fixtures.
+              I decided to splurge and am using cherry wood for the frame. The family is very excited!</p></div>
+                <p><input type="text" placeholder="Reply..."></p>
+          </div>
+
+          <div>
+            <div><img src="/static/img/copy1.png"><p>Jerry Seinfeld</p></div>
+            <div><p>This week at Microsoft we
+            launched a new sustainability program. We have been wanting to lower our water consumption levels to lead the way in carbon neutral emissions. I am in charge of the
+            Water Risk Monetizer tool operations. These duties include...</p></div>
+              <p><input type="text" placeholder="Reply..."></p>
+          </div>
+
+          <div>
+            <div><img src="/static/img/copy1.png"><p>George Constanza</p></div>
+            <div><p>Tonight I am going to the
+            opera, Pagliaccio. I have two extra tickets if anyone wants to join. If someone claims the tickets, they also put tickets on sale for 25% off! Message me if you
+            would like to come join!</p></div>
+              <p><input type="text" placeholder="Reply..."></p>
+          </div>
+
+        </div>
+
+        <div class="col-md-4">
+          <div>People You May Know</div>
+        </div>
+
+    </div>
+
+  </div>
+</div>
 {% endblock content %}
