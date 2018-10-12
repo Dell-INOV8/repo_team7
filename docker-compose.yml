@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+  application:
+    image: dev_repo_test:latest
+    volumes:
+      - ./frontend:/var/www/frontend
+      - ./backend:/var/www/backend
+    working_dir: /var/www
+    environment:
+      - FLASK_ENV=production
+    ports:
+      - "8080:8080"
+    command: gunicorn --bind 0.0.0.0:8080 -w 2 dev_run:app prod_run.py
