@@ -1,83 +1,180 @@
 {% extends "base.html" %}
 {% block title %}
-Employee Platform
+INNOVATE
 {% endblock title %}
 
 
 {% block content %}
 {{ super() }}
+<style>
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#search-bar {
+  float: left;
+}
+
+#search-bar:focus {
+  outline: none;
+}
+
+#main-content {
+  padding-top:5%;
+  padding-left: 15px;
+  margin: auto;
+}
+
+#profile-snapshot {
+  border:2px black solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#new-post {
+  width:100%;
+  border:1px black solid;
+  height:30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.post {
+  border: 1px black solid;
+  margin-bottom: 10px;
+  margin-top:5%;
+  padding-top:2%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navbar-default .navbar-nav>.active>a {
+    color: #3287C1;
+    background-color: inherit !important;
+}
+
+.navbar-brand>img {
+    height: auto;
+    width: 40px;
+}
+
+#post-text {
+  padding: 20px;
+}
+
+</style>
+
 <div class="container-fluid">
 
     <div class="row">
+        <div class="row" id="main-content">
 
-      <div class="col-md-6">
-        <p><input type="text" placeholder="Search"></p>
-      </div>
-
-      <div class="col-md-6">
-        <div class="dropdown">
-          <button class="dropbtn">Filter None<img src="/static/img/drop-down-arrow.png"></button>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="row">
-
-        <div class="col-md-4">
-            <div>
-              <img src="/static/img/copy1.png">
-              <p>Senior Advisor, Visual Designer<br>DELL<br>San Francisco, CA</p>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
-              eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-              sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
-              qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam
-              aliquam quaerat voluptatem.</p>
+            <div class="col-md-3" style="float:left; margin:0 23px 23px 0;">
+              <div class="row" id="profile-snapshot">
+                <div class="row">
+                  <div class="col-sm-3" style="padding:23px 23px 23px 45px;">
+                    <img src="/static/img/copy1.png" class="center-block">
+                  </div>
+                  <div class="col-sm-9" style="padding:10px;">
+                    <p>Senior Advisor, Visual Designer<br>DELL<br>San Francisco, CA</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12" style="margin-left:10px;">
+                    <p>Connections: 118<br>
+                      Posts: 435<br>
+                      Experience: 275<br>
+                      Personal Projects: 68<br>
+                      Social: 92<br>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-          <div>Calendar</div>
-        </div>
 
-        <div class="col-md-4">
+            <div class="col-md-6" style="margin-left:20px;">
+              <form method="POST" action="{{ url_for('postings_bp.postapi') }}">
+                <p><input name="body" type="text" placeholder="Start a new post..." id="new-post"></p>
+                <button type="submit">Publish</button>
+              </form>
 
-          <p><input type="text" placeholder="Start a new post..."></p>
+              <div class="post">
+                  <div class="col-sm-1">
+                    <img src="/static/img/copy1.png">
+                  </div>
+                  <div class="col-sm-11">
+                    <p>Art Vandelay</p>
+                  </div>
 
-          <div>
-            <div><img src="/static/img/copy1.png"><p>Art Vandelay</p></div>
-            <div><p>Began a new project this afternoon!
-              I am working on building a new T.V. stand for our house. So far, I have all the wood pieces cut out and am moving onto the wiring for the light fixtures.
-              I decided to splurge and am using cherry wood for the frame. The family is very excited!</p></div>
-                <p><input type="text" placeholder="Reply..."></p>
-          </div>
+                <div><p id="post-text">Began a new project this afternoon!
+                  I am working on building a new T.V. stand for our house. So far, I have all the wood pieces cut out and am moving onto the wiring for the light fixtures.
+                  I decided to splurge and am using cherry wood for the frame. The family is very excited!</p></div>
+                    <p><input type="text" placeholder="Reply..." style="width:100%; padding-left:2%; padding-right:2%"></p>
+              </div>
 
-          <div>
-            <div><img src="/static/img/copy1.png"><p>Jerry Seinfeld</p></div>
-            <div><p>This week at Microsoft we
-            launched a new sustainability program. We have been wanting to lower our water consumption levels to lead the way in carbon neutral emissions. I am in charge of the
-            Water Risk Monetizer tool operations. These duties include...</p></div>
-              <p><input type="text" placeholder="Reply..."></p>
-          </div>
+              <div class="post">
+                  <div class="col-sm-1">
+                    <img src="/static/img/copy1.png">
+                  </div>
+                  <div class="col-sm-11">
+                    <p>Jerry Seinfeld</p>
+                  </div>
 
-          <div>
-            <div><img src="/static/img/copy1.png"><p>George Constanza</p></div>
-            <div><p>Tonight I am going to the
-            opera, Pagliaccio. I have two extra tickets if anyone wants to join. If someone claims the tickets, they also put tickets on sale for 25% off! Message me if you
-            would like to come join!</p></div>
-              <p><input type="text" placeholder="Reply..."></p>
-          </div>
+                <div><p id="post-text">This week at Microsoft we launched a new sustainability program. We have been wanting to lower our water consumption levels to lead the way in carbon
+                  neutral emissions. I am in charge of the Water Risk Monetizer tool operations. These duties include...</p></div>
+                    <p><input type="text" placeholder="Reply..." style="width:100%; padding-left:2%; padding-right:2%"></p>
+              </div>
 
-        </div>
+              <div class="post">
+                  <div class="col-sm-1">
+                    <img src="/static/img/copy1.png">
+                  </div>
+                  <div class="col-sm-11">
+                    <p>George Constanza</p>
+                  </div>
 
-        <div class="col-md-4">
-          <div>People You May Know</div>
-        </div>
+                <div><p id="post-text">Tonight I am going to the opera, Pagliaccio. I have two extra tickets if anyone wants to join. If someone claims the tickets, they also put tickets on
+                  sale for 25% off! Message me if you would like to come join!</p></div>
+                    <p><input type="text" placeholder="Reply..." style="width:100%; padding-left:2%; padding-right:2%"></p>
+              </div>
 
-    </div>
+            </div>
 
+            <div class="col-md-2" style="border:1px black solid; float:right; margin:0 23px 0 23px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+              <div><p class="text-center" style="padding-top: 5%;">People You May Know</p></div>
+
+              <div class="row">
+                <div class="col-sm-2">
+                  <img src="/static/img/copy1.png">
+                </div>
+                <div class="col-sm-10">
+                  <p><b>Elaine Benes</b><br>Senior Advisor<br>Boeing</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-2">
+                  <img src="/static/img/copy1.png">
+                </div>
+                <div class="col-sm-10">
+                  <p><b>Cosmo Kramer</b><br>Principle Integration Designer<br>Dell</p>
+                </div>
+              </div>
+
+            </div>
+
+      </div>
   </div>
 </div>
 {% endblock content %}
+
+{% block js %}
+<script>
+  $(document).ready(function() {
+    $.ajax({
+      url: url_for("postings_bp.postapi"),
+      succ
+    })
+  });
+</script>
+{% endblock js %}

@@ -1,7 +1,14 @@
+bcrypt
 flask
 flask-admin
 flask-bootstrap
 flask-debugtoolbar
+flask-marshmallow
 flask-nav
+flask-restful
 flask-security
+flask-sqlalchemy
+marshmallow-sqlalchemy
+sqlalchemy
+sqlalchemy-mixins
 gunicorn
