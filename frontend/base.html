@@ -2,8 +2,8 @@
 
 {% block css %}
 {{ super() }}
-<link rel="stylesheet" href="/static/Hack2HireCSS.css">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="{{ url_for('static', filename='Hack2HireCSS.css') }}" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
 {% endblock css %}
 
 {% block navbar %}
