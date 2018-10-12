@@ -44,4 +44,8 @@ class Post(db.Model):
     type = db.relationship(PostType, secondary=type_association)
 
     # Connect the post to its user
-    user = db.relationship(user_model, secondary=user_association)
+    user = db.relationship(
+        user_model, secondary=user_association,
+        backref=db.backref('posts', lazy="dynamic"),
+        lazy="dynamic"
+    )
