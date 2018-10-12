@@ -6,6 +6,49 @@ Employee Platform
 
 {% block content %}
 {{ super() }}
+<style>
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#search-bar {
+  float: left;
+}
+
+#search-bar:focus {
+  outline: none;
+}
+
+#main-content {
+  padding-top:5%;
+  padding-left: 15px;
+}
+
+#profile-snapshot {
+  border:2px black solid;
+}
+
+#new-post {
+  width:100%;
+  border:1px black solid;
+  height:30px;
+}
+
+.post {
+  border: 1px black solid;
+  margin-bottom: 10px;
+  margin-top:5%;
+  padding-top:2%;
+}
+
+#post-text {
+  padding: 20px;
+}
+
+</style>
+
 <div class="container-fluid">
 
     <div class="row">
