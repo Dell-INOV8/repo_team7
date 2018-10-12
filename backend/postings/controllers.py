@@ -24,6 +24,7 @@ class PostApi(Resource):
 
     def post(self):
         post = Post.create(body=self.args['body'])
+        print(post)
         user = user_model.find(int(current_user.id) if current_user and hasattr(current_user, "id") else 1)
         user.posts.append(post)
         Post.session.commit()

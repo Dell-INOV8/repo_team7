@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-Employee Platform
+INNOVATE
 {% endblock title %}
 
 
@@ -24,16 +24,19 @@ Employee Platform
 #main-content {
   padding-top:5%;
   padding-left: 15px;
+  margin: auto;
 }
 
 #profile-snapshot {
   border:2px black solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #new-post {
   width:100%;
   border:1px black solid;
   height:30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .post {
@@ -41,6 +44,7 @@ Employee Platform
   margin-bottom: 10px;
   margin-top:5%;
   padding-top:2%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #post-text {
@@ -53,16 +57,16 @@ Employee Platform
 
     <div class="row">
 
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-default"></span>
           </div>
           <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search">
-        </div>
+        </div> -->
 
         <div class="row" id="main-content">
 
-            <div class="col-md-3">
+            <div class="col-md-3" style="float:left; margin:0 23px 23px 0;">
               <div class="row" id="profile-snapshot">
                 <div class="row">
                   <div class="col-sm-3" style="padding:23px 23px 23px 45px;">
@@ -85,8 +89,11 @@ Employee Platform
               </div>
             </div>
 
-            <div class="col-md-6">
-              <p><input type="text" placeholder="Start a new post..." id="new-post"></p>
+            <div class="col-md-6" style="margin-left:20px;">
+              <form method="POST" action="{{ url_for("postings_bp.postapi") }}">
+                <p><input name="body" type="text" placeholder="Start a new post..." id="new-post"></p>
+                <button type="submit">Publish</button>
+              </form>
 
               <div class="post">
                   <div class="col-sm-1">
@@ -112,7 +119,7 @@ Employee Platform
 
                 <div><p id="post-text">This week at Microsoft we launched a new sustainability program. We have been wanting to lower our water consumption levels to lead the way in carbon
                   neutral emissions. I am in charge of the Water Risk Monetizer tool operations. These duties include...</p></div>
-                    <p><input type="text" placeholder="Reply..." style="width:100%;"></p>
+                    <p><input type="text" placeholder="Reply..." style="width:100%; padding-left:2%; padding-right:2%"></p>
               </div>
 
               <div class="post">
@@ -125,12 +132,12 @@ Employee Platform
 
                 <div><p id="post-text">Tonight I am going to the opera, Pagliaccio. I have two extra tickets if anyone wants to join. If someone claims the tickets, they also put tickets on
                   sale for 25% off! Message me if you would like to come join!</p></div>
-                    <p><input type="text" placeholder="Reply..." style="width:100%;"></p>
+                    <p><input type="text" placeholder="Reply..." style="width:100%; padding-left:2%; padding-right:2%"></p>
               </div>
 
             </div>
 
-            <div class="col-md-2" style="border:1px black solid;">
+            <div class="col-md-2" style="border:1px black solid; float:right; margin:0 23px 0 23px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
 
               <div><p class="text-center" style="padding-top: 5%;">People You May Know</p></div>
 
@@ -158,3 +165,14 @@ Employee Platform
   </div>
 </div>
 {% endblock content %}
+
+{% block js %}
+<script>
+  $(document).ready(function() {
+    $.ajax({
+      url: url_for("postings_bp.postapi"),
+      succ
+    })
+  });
+</script>
+{% endblock js %}
