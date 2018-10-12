@@ -47,6 +47,16 @@ INNOVATE
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.navbar-default .navbar-nav>.active>a {
+    color: #3287C1;
+    background-color: inherit !important;
+}
+
+.navbar-brand>img {
+    height: auto;
+    width: 40px;
+}
+
 #post-text {
   padding: 20px;
 }
@@ -56,14 +66,6 @@ INNOVATE
 <div class="container-fluid">
 
     <div class="row">
-
-        <!-- <div class="col-md-6">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default"></span>
-          </div>
-          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search">
-        </div> -->
-
         <div class="row" id="main-content">
 
             <div class="col-md-3" style="float:left; margin:0 23px 23px 0;">
@@ -90,7 +92,7 @@ INNOVATE
             </div>
 
             <div class="col-md-6" style="margin-left:20px;">
-              <form method="POST" action="{{ url_for("postings_bp.postapi") }}">
+              <form method="POST" action="{{ url_for('postings_bp.postapi') }}">
                 <p><input name="body" type="text" placeholder="Start a new post..." id="new-post"></p>
                 <button type="submit">Publish</button>
               </form>
