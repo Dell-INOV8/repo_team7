@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from .extensions import debug
+from .extensions import boot, debug, nav
 
 # Create app context
 app = Flask(
@@ -7,14 +7,19 @@ app = Flask(
     template_folder="../frontend"
 )
 
-# Import modules
-import backend.core
-
 
 @app.route("/")
-def default():
+def index():
     return render_template("layout.html")
 
+
+# Import modules
+import backend.core
+import backend.navigation
+
+# Register extensions
+boot.init_app(app)
+nav.init_app(app)
 
 if app.config["DEBUG"]:
     debug.init_app(app)
