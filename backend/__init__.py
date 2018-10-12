@@ -1,5 +1,6 @@
 from flask import Flask, render_template
-from .extensions import boot, debug, nav
+from flask_security import login_required
+from .extensions import boot, db, debug, nav
 
 # Create app context
 app = Flask(
@@ -10,6 +11,7 @@ app = Flask(
 
 
 @app.route("/")
+@login_required
 def index():
     return render_template("layout.html")
 
@@ -20,6 +22,7 @@ import backend.navigation
 
 # Register extensions
 boot.init_app(app)
+db.init_app(app)
 nav.init_app(app)
 
 if app.config["DEBUG"]:
