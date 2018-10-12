@@ -1,0 +1,7 @@
+flask
+flask-admin
+flask-bootstrap
+flask-debugtoolbar
+flask-nav
+flask-security
+gunicorn
