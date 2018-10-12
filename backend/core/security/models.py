@@ -27,3 +27,6 @@ class User(db.Model, UserMixin):
     confirmed_at = db.Column(db.DateTime(), default=datetime.datetime.utcnow())
     roles = db.relationship('Role', secondary=roles_users,
                             backref=db.backref('user', lazy='dynamic'))
+
+    def __str__(self):
+        return "{}, {}".format(self.last_name, self.first_name)
