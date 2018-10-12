@@ -1,4 +1,5 @@
 from backend import admin, app, db
+from .base_view import ModelView
 
 
 with app.app_context():
